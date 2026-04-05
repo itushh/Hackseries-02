@@ -55,6 +55,7 @@ const Impact = () => {
                     <h2 className="text-5xl md:text-7xl font-boldonse font-bold text-white uppercase tracking-tighter leading-tight">
                         How Hack<span className="text-[#D4AF37]">Series</span> <br /> Helps Students
                     </h2>
+                </div>    
                 </motion.div>
 
                 {/* Staggered Full-Width 3-Column Bento Grid */}
