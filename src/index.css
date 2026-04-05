@@ -23,6 +23,15 @@ body {
     @apply bg-black text-white;
 }
 
+/* Hide global scrollbar on all browsers (fixes Windows scrollbar-strip layout bug) */
+html, body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
 #root {
     display: flex;
     flex-direction: column;
