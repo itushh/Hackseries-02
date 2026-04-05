@@ -1,30 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const features = [
+const reasons = [
     {
         id: "01",
-        title: "Build Foundations",
-        desc: "Master the core logic of programming languages to ensure your base is unbreakable. We teach architectural thinking."
+        whiteText: "BUILD",
+        yellowText: "FOUNDATIONS",
+        desc: "Master the core logic of programming languages."
     },
     {
         id: "02",
-        title: "Hands-on Learning",
-        desc: "Theory is a ghost without practice. Apply concepts in real-world scenarios through intense coding exercises."
+        whiteText: "HANDS-ON",
+        yellowText: "LEARNING",
+        desc: "Theory is a ghost without practice. Apply concepts in real-world scenarios."
     },
     {
         id: "03",
-        title: "Career-Oriented",
-        desc: "Stay updated with high-demand domains, ensuring you are prepared for the future of the tech industry."
+        whiteText: "CAREER",
+        yellowText: "ORIENTED",
+        desc: "Focus on high-demand domains, ensuring you stay updated with latest tools."
     },
     {
         id: "04",
-        title: "Peer Learning",
-        desc: "Student-led growth fosters a comfortable yet competitive environment. Learn from peers in the trenches."
+        whiteText: "PEER",
+        yellowText: "LEARNING",
+        desc: "Collaborative growth in a competitive student-led environment."
     }
 ];
 
-const FeatureSection = ({ feature }) => {
+const FeatureSection = ({ reason }) => {
     return (
         <div className="relative h-screen w-full flex items-center justify-center bg-[#050505] overflow-hidden border-b border-white/5">
 
@@ -40,7 +44,7 @@ const FeatureSection = ({ feature }) => {
                 className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none"
             >
                 <span className="text-[65vw] font-boldonse font-bold text-[#7a2020] leading-none select-none tracking-tighter">
-                    {feature.id}
+                    {reason.id}
                 </span>
             </motion.div>
 
@@ -52,13 +56,13 @@ const FeatureSection = ({ feature }) => {
                     transition={{ duration: 0.8 }}
                 >
                     <h3 className="text-[#D4AF37] font-boldonse text-xs md:text-sm tracking-[0.5em] mb-6 uppercase font-bold drop-shadow-lg">
-                        Reason {feature.id}
+                        Reason {reason.id}
                     </h3>
-                    <h2 className="text-6xl md:text-[9rem] font-boldonse font-bold text-white mb-10 tracking-tighter uppercase leading-[0.85]">
-                        {feature.title}
+                    <h2 className="text-6xl md:text-[9rem] font-boldonse font-bold text-white mb-10 leading-[0.9] tracking-tighter uppercase">
+                        {reason.whiteText} <span className="text-[#D4AF37]">{reason.yellowText}</span>
                     </h2>
                     <p className="text-gray-400 text-lg md:text-2xl font-light tracking-widest leading-relaxed max-w-3xl mx-auto uppercase">
-                        {feature.desc}
+                        {reason.desc}
                     </p>
                 </motion.div>
             </div>
@@ -84,8 +88,8 @@ const Why = () => {
 
             {/* THE REVEAL SEQUENCE */}
             <div className="relative">
-                {features.map((f) => (
-                    <FeatureSection key={f.id} feature={f} />
+                {reasons.map((r) => (
+                    <FeatureSection key={r.id} reason={r} />
                 ))}
             </div>
         </section>
