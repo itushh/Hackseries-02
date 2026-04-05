@@ -13,7 +13,8 @@ const Header = () => {
 
     return (
         <nav className="bg-[#0a0a0a] text-white px-6 py-6 border-b border-[#D4AF37]/20 sticky top-0 z-[100]">
-            <div className="max-w-[1400px] mx-auto flex items-center justify-between md:grid md:grid-cols-3">
+            {/* Header Content Wrapper */}
+            <div className="w-full flex items-center justify-between md:grid md:grid-cols-3">
 
                 {/* Left Navigation */}
                 <ul className="hidden md:flex gap-10 justify-start items-center text-lg font-boldonse tracking-[0.25em]">
