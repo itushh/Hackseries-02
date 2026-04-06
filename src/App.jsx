@@ -18,22 +18,12 @@ import ContactUs from './Pages/ContactUs'
 
 function Home() {
   return (
-    <div className="relative w-full bg-black overflow-x-hidden">
-
-      <Header />
-
-
-      <main className="relative z-10 w-full bg-black shadow-[0_50px_50px_rgba(0,0,0,0.5)] mb-[60vh] md:mb-[65vh]">
-        <Hero />
-        <Why />
-        <Impact />
-        <RoadmapsGrid />
-      </main>
-
-
-      <Footer />
-
-    </div>
+    <>
+      <Hero />
+      <Why />
+      <Impact />
+      <RoadmapsGrid />
+    </>
   )
 }
 
@@ -42,20 +32,26 @@ import Registration from './Pages/Registration'
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/registration" element={<Registration />} />
-        <Route path="/roadmaps" element={<Outlet />}>
-          <Route path="webdev" element={<RoadmapWebDev />} />
-          <Route path="aiml" element={<RoadmapAIML />} />
-          <Route path="cloud" element={<RoadmapCloud />} />
-          <Route path="programming" element={<RoadmapProgramming />} />
-          <Route path="dsa" element={<RoadmapDSA />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+      <div className="relative w-full bg-black overflow-x-hidden">
+        <Header />
+        <main className="relative z-10 w-full bg-black shadow-[0_50px_50px_rgba(0,0,0,0.5)] mb-[60vh] md:mb-[65vh]">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/roadmaps" element={<Outlet />}>
+            <Route path="webdev" element={<RoadmapWebDev />} />
+            <Route path="aiml" element={<RoadmapAIML />} />
+            <Route path="cloud" element={<RoadmapCloud />} />
+            <Route path="programming" element={<RoadmapProgramming />} />
+            <Route path="dsa" element={<RoadmapDSA />} />
+          </Route>
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+    </BrowserRouter >
   )
 }
 
