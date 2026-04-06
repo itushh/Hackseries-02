@@ -38,7 +38,7 @@ const Impact = () => {
         }
     };
 
-    const cardClass = "bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-10 flex flex-col relative overflow-hidden group hover:border-[#D4AF37]/40 shadow-2xl transition-all duration-500 ease-out will-change-transform";
+    const cardClass = "bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/5 rounded-[2.5rem] px-10 pt-10 pb-14 flex flex-col gap-6 relative overflow-hidden group hover:border-[#D4AF37]/40 shadow-2xl transition-all duration-500 ease-out will-change-transform";
 
     return (
         <section className="py-32 px-6 relative overflow-hidden bg-[#050505] min-h-screen">
@@ -59,12 +59,12 @@ const Impact = () => {
                 </div>
 
                 {/* Staggered Full-Width 3-Column Bento Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-20 h-auto lg:h-[900px]">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-20 lg:min-h-[900px]">
 
                     {/* COLUMN 1 */}
                     <div className="flex flex-col gap-8 lg:h-full">
                         {/* Col 1 Top (60%) - Problem Solving */}
-                        <div className={`${cardClass} lg:h-[60%] min-h-[400px]`}>
+                        <div className={`${cardClass} min-h-[400px] lg:flex-1 justify-between`}>
                             {/* Dark Yellow/Gold Glow Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
 
@@ -93,7 +93,7 @@ const Impact = () => {
                         </div>
 
                         {/* Col 1 Bottom (40%) - Real World Experience */}
-                        <div className={`${cardClass} lg:h-[40%] min-h-[300px] justify-between`}>
+                        <div className={`${cardClass} min-h-[300px] lg:flex-1 justify-between`}>
                             {/* Inner Gold Hover Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
 
@@ -144,7 +144,7 @@ const Impact = () => {
                     {/* COLUMN 2 */}
                     <div className="flex flex-col gap-8 lg:h-full">
                         {/* Col 2 Full (100%) - Technical Proficiency */}
-                        <div className={`${cardClass} lg:h-full min-h-[550px]`}>
+                        <div className={`${cardClass} min-h-[550px] lg:h-full`}>
                             {/* Massive Gold Hover Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 via-[#D4AF37]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none z-0" />
 
@@ -202,7 +202,7 @@ const Impact = () => {
                     {/* COLUMN 3 */}
                     <div className="flex flex-col gap-8 lg:h-full">
                         {/* Col 3 Top (40%) - Leadership & Teamwork */}
-                        <div className={`${cardClass} lg:h-[40%] min-h-[300px] justify-between`}>
+                        <div className={`${cardClass} min-h-[300px] lg:flex-1 justify-between`}>
                             <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
 
                             <div className="absolute -bottom-16 -right-16 opacity-[0.02] group-hover:opacity-[0.15] transition-opacity duration-1000 ease-out z-0 pointer-events-none">
@@ -229,7 +229,7 @@ const Impact = () => {
                         </div>
 
                         {/* Col 3 Bottom (60%) - Networking */}
-                        <div className={`${cardClass} lg:h-[60%] min-h-[400px]`}>
+                        <div className={`${cardClass} min-h-[520px] lg:flex-1 justify-between`}>
                             <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
 
                             <div className="absolute -bottom-20 -right-20 opacity-[0.02] group-hover:opacity-[0.15] transition-opacity duration-1000 ease-out z-0 pointer-events-none">
@@ -237,7 +237,7 @@ const Impact = () => {
                             </div>
 
                             {/* Visual: Fanning Contact Cards */}
-                            <div className="w-full flex-1 flex items-center justify-center relative min-h-[220px] mb-8 z-10" style={{ perspective: '1000px' }}>
+                            <div className="w-full flex-1 flex items-center justify-center relative min-h-[180px] mb-6 z-10" style={{ perspective: '1000px' }}>
                                 {[
                                     {
                                         rot: '-rotate-12 -translate-x-10 translate-y-6',
@@ -252,7 +252,7 @@ const Impact = () => {
                                         hov: 'group-hover:shadow-[0_20px_40px_rgba(212,175,55,0.25)]'
                                     },
                                 ].map((card, i) => (
-                                    <div key={i} className={`absolute w-full max-w-[200px] h-32 bg-[#111111]/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl transition-all duration-700 flex flex-col p-4 justify-between transform ${card.rot} ${card.hov} ${i === 2 ? 'border-[#D4AF37]/40 ring-1 ring-[#D4AF37]/10' : ''}`}>
+                                    <div key={i} className={`absolute w-full max-w-[180px] h-28 bg-[#111111]/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl transition-all duration-700 flex flex-col p-4 justify-between transform ${card.rot} ${card.hov} ${i === 2 ? 'border-[#D4AF37]/40 ring-1 ring-[#D4AF37]/10' : ''}`}>
                                         <div className="flex items-center gap-4">
                                             <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${i === 2 ? 'bg-[#D4AF37]/20 border border-[#D4AF37]/50' : 'bg-white/5 border border-white/10'}`}>
                                                 <UserPlus className={`w-4 h-4 ${i === 2 ? 'text-[#D4AF37]' : 'text-gray-400'}`} />
@@ -269,10 +269,10 @@ const Impact = () => {
                                 ))}
                             </div>
 
-                            <div className="mt-auto z-20 relative">
+                            <div className="mt-auto z-20 relative pb-6">
                                 {impacts.networking.icon}
                                 <h3 className="text-2xl md:text-3xl font-boldonse font-bold text-white mb-3 tracking-wide">{impacts.networking.title}</h3>
-                                <p className="text-gray-400 font-light text-sm md:text-base leading-relaxed drop-shadow-md">{impacts.networking.desc}</p>
+                                <p className="text-gray-400 font-light text-sm md:text-base leading-relaxed drop-shadow-md mb-2">{impacts.networking.desc}</p>
                             </div>
                         </div>
                     </div>
