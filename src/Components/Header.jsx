@@ -8,7 +8,7 @@ const Header = () => {
 
     const navLinks = [
         { name: 'HOME', href: '/#home' },
-        { name: 'EVENT', href: '/#event' },
+        // { name: 'EVENT', href: '/#event' }, // Hidden for now
         { name: 'GALLERY', href: '/gallery' },
         { name: 'CONTACT US', href: '/contact' },
     ];
