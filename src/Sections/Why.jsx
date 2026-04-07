@@ -79,7 +79,7 @@ const Why = () => {
                 {/* Title */}
                 <div className="flex flex-col items-center mb-8 md:mb-12">
                     <h2 className="text-4xl md:text-[6rem] font-boldonse font-bold tracking-tighter uppercase leading-none text-center drop-shadow-[0_10px_30px_rgba(212,175,55,0.15)]">
-                        <span className="text-white">Why</span><br className="hidden md:block"/>
+                        <span className="text-white">Why</span><br className="hidden md:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#D4AF37] to-[#802222] pl-0 md:pl-4 py-2">
                             HackSeries&nbsp;?
                         </span>
@@ -92,13 +92,13 @@ const Why = () => {
                         // Check if this segment is the currently active one
                         const isActive = stack[0] === originalIndex;
                         // Check if this segment has already passed
-                        const isPast = stack.indexOf(originalIndex) > 0 && stack.indexOf(originalIndex) < stack.indexOf(stack[0]); 
+                        const isPast = stack.indexOf(originalIndex) > 0 && stack.indexOf(originalIndex) < stack.indexOf(stack[0]);
                         // Wait, a better logic for past stories in a loop is just filling the active one.
-                        
+
                         return (
                             <div key={originalIndex} className="h-[3px] md:h-1 flex-1 bg-white/20 rounded-full overflow-hidden relative">
                                 {isActive && !animateOut && (
-                                    <div 
+                                    <div
                                         className="absolute inset-0 bg-[#D4AF37] origin-left"
                                         style={{ animation: 'fillStoryBar 5s linear forwards' }}
                                     />
@@ -109,7 +109,7 @@ const Why = () => {
                 </div>
 
                 {/* The Interactive 3D Stack Deck */}
-                <div 
+                <div
                     className="relative w-full max-w-[340px] sm:max-w-[400px] md:max-w-[450px] h-[480px] md:h-[500px]"
                     style={{ perspective: '1200px' }}
                 >
@@ -168,9 +168,9 @@ const Why = () => {
                                     <span className="text-[#D4AF37] font-boldonse text-[10px] md:text-xs tracking-[0.5em] uppercase font-bold bg-[#D4AF37]/10 w-fit px-4 py-1.5 rounded-full border border-[#D4AF37]/20 mb-6 backdrop-blur-md">
                                         Reason {r.id}
                                     </span>
-                                    
+
                                     <h2 className="text-4xl md:text-5xl font-boldonse font-bold text-white leading-tight tracking-tighter uppercase drop-shadow-xl select-none">
-                                        {r.whiteText} <br/>
+                                        {r.whiteText} <br />
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#e6d083]">
                                             {r.yellowText}
                                         </span>
@@ -188,9 +188,9 @@ const Why = () => {
                 </div>
 
                 {/* Mobile Tap Hint */}
-                <div className="mt-12 text-gray-500 text-xs md:text-sm font-light tracking-[0.3em] uppercase animate-pulse">
+                {/*<div className="mt-12 text-gray-500 text-xs md:text-sm font-light tracking-[0.3em] uppercase animate-pulse">
                     Tap card to view next
-                </div>
+                </div>*/}
             </div>
         </section>
     );
