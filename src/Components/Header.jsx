@@ -1,10 +1,28 @@
 import React, { useState } from 'react';
 import PhoenixLogo from '../assets/logo (1).png';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const goToHomeHero = (e) => {
+        e.preventDefault();
+        setIsOpen(false);
+
+        if (location.pathname !== '/') {
+            navigate('/#home');
+            return;
+        }
+
+        const homeSection = document.getElementById('home');
+        if (homeSection) {
+            homeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.history.replaceState(null, '', '/#home');
+        }
+    };
 
     const navLinks = [
         { name: 'HOME', href: '/#home' },
@@ -15,11 +33,11 @@ const Header = () => {
 
     return (
         <>
-            <div className="fixed top-4 w-full z-[100] px-4 md:px-8 flex justify-center pointer-events-none">
-                <nav className="pointer-events-auto w-full max-w-[1400px] bg-[#0a0a0a]/80 backdrop-blur-md text-white px-6 py-3 border border-[#D4AF37]/30 rounded-2xl md:rounded-full transition-all">
+            <div className="fixed top-4 w-full z-100 px-4 md:px-8 flex justify-center pointer-events-none">
+                <nav className="pointer-events-auto w-full max-w-350 bg-[#0a0a0a]/80 backdrop-blur-md text-white px-6 py-3 border border-[#D4AF37]/30 rounded-2xl md:rounded-full transition-all">
                     <div className="flex items-center justify-between">
 
-                        <div className="flex items-center gap-3">
+                        <a href="/#home" onClick={goToHomeHero} className="flex items-center gap-3 cursor-pointer" aria-label="Go to home section">
                             <img
                                 src={PhoenixLogo}
                                 alt="Logo"
@@ -28,7 +46,7 @@ const Header = () => {
                             <h1 className="text-2xl md:text-3xl font-boldonse font-bold tracking-tighter">
                                 HACK<span className="text-[#D4AF37]">SERIES</span>
                             </h1>
-                        </div>
+                        </a>
 
                         <ul className="hidden lg:flex flex-1 justify-end mr-10 gap-8 xl:gap-12 items-center text-sm lg:text-base font-boldonse tracking-[0.2em] whitespace-nowrap">
                             {navLinks.map((link) => (
@@ -59,10 +77,10 @@ const Header = () => {
             </div>
 
             {/* Mobile Sidebar */}
-            <div className={`fixed inset-0 bg-black/98 z-[101] transition-transform duration-500 lg:hidden pointer-events-auto ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`fixed inset-0 bg-black/98 z-101 transition-transform duration-500 lg:hidden pointer-events-auto ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <button
                     onClick={() => setIsOpen(false)}
-                    className="absolute top-8 right-8 text-[#D4AF37] hover:text-white transition-colors z-[102]"
+                    className="absolute top-8 right-8 text-[#D4AF37] hover:text-white transition-colors z-102"
                     aria-label="Close menu"
                 >
                     <X size={36} />
