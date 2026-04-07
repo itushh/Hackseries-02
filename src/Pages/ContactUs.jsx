@@ -29,27 +29,36 @@ const ContactUs = () => {
 
         const url = "https://script.google.com/macros/s/AKfycbzoKgq7FkrJY8igkN5xguk_Yq42vBFWnler2FZ1f1-ys5SLcGwL8Ae3SPpE84EDJ5lb/exec";
 
-        // Send URL-encoded form fields so Apps Script can read e.parameter
-        const params = new URLSearchParams({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            message: formData.message
-        });
-
         try {
-            // Keep no-cors because Apps Script web apps do not always return CORS headers.
-            await fetch(url, {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-                },
-                body: params.toString(),
+            const iframeName = 'contact-form-target';
+            let iframe = document.querySelector(`iframe[name="${iframeName}"]`);
+
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.name = iframeName;
+                iframe.title = 'contact-form-target';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+            }
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = url;
+            form.target = iframeName;
+            form.style.display = 'none';
+
+            Object.entries(formData).forEach(([key, value]) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                form.appendChild(input);
             });
 
-            // With no-cors mode, we can't read the response, so we assume success
-            // if no error was thrown
+            document.body.appendChild(form);
+            form.submit();
+            form.remove();
+
             setSubmitStatus('success');
             setFormData({ name: '', email: '', phone: '', message: '' });
         } catch (error) {
